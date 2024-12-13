@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Cookies</title>
+    <title>Show Cookies_new </title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,6 +18,7 @@
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // Get cookies for the current page
             const cookies = document.cookie;
             const cookiesDisplay = document.getElementById('cookies');
 
@@ -26,11 +27,23 @@
             } else {
                 cookiesDisplay.textContent = "No cookies found.";
             }
+
+            // Display the referring URL
+            const referrerDisplay = document.getElementById('referrer');
+            const referrer = document.referrer;
+
+            if (referrer) {
+                referrerDisplay.textContent = `Referring URL: ${referrer}`;
+            } else {
+                referrerDisplay.textContent = "No referrer information available.";
+            }
         });
     </script>
 </head>
 <body>
     <h1>Your Cookies</h1>
     <pre id="cookies"></pre>
+    <h2>Referrer Information</h2>
+    <pre id="referrer"></pre>
 </body>
 </html>
